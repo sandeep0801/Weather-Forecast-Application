@@ -4,36 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" rel="stylesheet">
 </head>
-<body class="bg-blue-100">
-    <div class="container mx-auto p-6">
-        <h1 class="text-3xl font-bold text-center bg-blue-600 text-white p-4 rounded-lg">Weather Dashboard</h1>
+<body>
+    <div class="container">
+        <h1>🌎 Weather Dashboard</h1>
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button onclick="fetchWeatherByCity()">🔍 Search</button>
+        <button onclick="fetchWeatherByLocation()">📍 Use Current Location</button>
 
-        <!-- Search Box -->
-        <div class="mt-6 bg-white p-4 rounded-lg shadow-lg">
-            <label class="font-bold text-lg">Enter a City Name</label>
-            <input type="text" id="cityInput" placeholder="E.g., New York, London, Tokyo"
-                class="w-full p-2 mt-2 border rounded">
-            <button onclick="fetchWeather()" class="bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Search</button>
-            <div class="text-center mt-2">or</div>
-            <button onclick="fetchWeatherByLocation()" class="bg-gray-600 text-white px-4 py-2 rounded mt-2 w-full">
-                Use Current Location
-            </button>
-        </div>
-
-        <!-- Weather Info -->
-        <div id="weatherInfo" class="hidden bg-blue-500 text-white p-6 mt-6 rounded-lg">
-            <h2 id="cityName" class="text-2xl font-bold"></h2>
+        <div id="weatherInfo" class="weather-container hidden">
+            <h2 id="cityName"></h2>
             <p id="temperature"></p>
             <p id="windSpeed"></p>
             <p id="humidity"></p>
-            <p id="weatherDescription" class="mt-2 text-lg"></p>
+            <p id="weatherDescription" class="weather-description"></p>
         </div>
 
-        <!-- 5-Day Forecast -->
-        <h2 class="text-xl font-bold mt-6">5-Day Forecast</h2>
-        <div id="forecast" class="grid grid-cols-5 gap-4 mt-4"></div>
+        <h2>5-Day Forecast</h2>
+        <div id="forecast" class="forecast-container"></div>
     </div>
 
     <script src="script.js"></script>

@@ -58,10 +58,10 @@ async function fetchWeatherByLocation() {
 function updateWeatherUI(data) {
     document.getElementById("weatherInfo").classList.remove("hidden");
     document.getElementById("cityName").innerHTML = `<strong>${data.name}</strong> (${new Date().toLocaleDateString()})`;
-    document.getElementById("temperature").innerHTML = `Temperature: ${data.main.temp}°C`;
-    document.getElementById("windSpeed").innerHTML = `Wind: ${data.wind.speed} m/s`;
-    document.getElementById("humidity").innerHTML = `Humidity: ${data.main.humidity}%`;
-    document.getElementById("weatherDescription").innerHTML = data.weather[0].description;
+    document.getElementById("temperature").innerHTML = `🌡️ Temperature: ${data.main.temp}°C`;
+    document.getElementById("windSpeed").innerHTML = `💨 Wind: ${data.wind.speed} m/s`;
+    document.getElementById("humidity").innerHTML = `💧 Humidity: ${data.main.humidity}%`;
+    document.getElementById("weatherDescription").innerHTML = `☁️ ${data.weather[0].description}`;
 }
 
 async function fetchForecast(lat, lon) {
@@ -81,11 +81,11 @@ async function fetchForecast(lat, lon) {
             const day = data.list[i];
             const date = new Date(day.dt * 1000).toLocaleDateString();
             forecastElement.innerHTML += `
-                <div class="bg-gray-300 p-4 rounded-lg shadow-lg">
+                <div>
                     <p class="font-bold">${date}</p>
-                    <p>Temp: ${day.main.temp}°C</p>
-                    <p>Wind: ${day.wind.speed} m/s</p>
-                    <p>Humidity: ${day.main.humidity}%</p>
+                    <p>🌡️ Temp: ${day.main.temp}°C</p>
+                    <p>💨 Wind: ${day.wind.speed} m/s</p>
+                    <p>💧 Humidity: ${day.main.humidity}%</p>
                 </div>
             `;
         }
